@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:calculator/service/calculator.dart';
 import 'package:calculator/widgets/calcTable_widget.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Calculator',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ),
       home: const MyHomePage(title: 'Calculator'),
     );
@@ -34,30 +36,67 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final myCalculator = MyCalculator();
 
-  void _refresh() {
-    setState(() {});
+  void _refresh(String operation) {
+    setState(() {
+      myCalculator.makeNumberAction(operation);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Table(
-        children: [
-          TableRow(children: [
-            Text(
-              myCalculator.currentCalcString,
-              style: const TextStyle(color: Colors.green, fontSize: 30),
-              textAlign: TextAlign.right,
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        backgroundColor: Colors.black,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 2 - 200,
+              child: Table(
+                children: [
+                  TableRow(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 50),
+                        child: Text(
+                          myCalculator.currentCalcString,
+                          textAlign: TextAlign.right,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 70,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      Text(
+                        myCalculator.sum.toString(),
+                        textAlign: TextAlign.right,
+                        style: const TextStyle(
+                          color: Colors.white54,
+                          fontSize: 50,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ]),
-          TableRow(children: [
-            calcTable(myCalculator, _refresh),
-          ])
-        ],
-      ),
-    );
+            const Divider(
+              color: Colors.grey,
+              height: 4,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 2,
+              child: calcTable(myCalculator, _refresh),
+            ),
+          ],
+        ));
   }
 }

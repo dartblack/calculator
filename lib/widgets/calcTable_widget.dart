@@ -5,43 +5,97 @@ import 'package:flutter/material.dart';
 Widget calcTable(MyCalculator myCalculator, Function refresh) {
   return Table(
     children: [
+      TableRow(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: calcNumberButton(MyCalculator.clear, refresh),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: calcNumberButton(MyCalculator.nails, refresh),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: calcNumberButton(MyCalculator.percent, refresh),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: calcNumberButton(MyCalculator.division, refresh),
+          ),
+        ],
+      ),
       TableRow(children: [
-        calcNumberButton(
-            MyCalculator.clear, myCalculator.makeMathAction, refresh),
-        calcNumberButton(
-            MyCalculator.nails, myCalculator.makeMathAction, refresh),
-        calcNumberButton(
-            MyCalculator.percent, myCalculator.makeMathAction, refresh),
-        calcNumberButton(
-            MyCalculator.division, myCalculator.makeMathAction, refresh),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton('1', refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton('2', refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton('3', refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton(MyCalculator.multiply, refresh),
+        ),
       ]),
       TableRow(children: [
-        calcNumberButton('1', myCalculator.makeNumberAction, refresh),
-        calcNumberButton('2', myCalculator.makeNumberAction, refresh),
-        calcNumberButton('3', myCalculator.makeNumberAction, refresh),
-        calcNumberButton(
-            MyCalculator.multiply, myCalculator.makeMathAction, refresh),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton('4', refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton('5', refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton('6', refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton(MyCalculator.minus, refresh),
+        ),
       ]),
       TableRow(children: [
-        calcNumberButton('4', myCalculator.makeNumberAction, refresh),
-        calcNumberButton('5', myCalculator.makeNumberAction, refresh),
-        calcNumberButton('6', myCalculator.makeNumberAction, refresh),
-        calcNumberButton(
-            MyCalculator.minus, myCalculator.makeMathAction, refresh),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton('7', refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton('8', refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton('9', refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton(MyCalculator.plus, refresh),
+        ),
       ]),
       TableRow(children: [
-        calcNumberButton('7', myCalculator.makeNumberAction, refresh),
-        calcNumberButton('8', myCalculator.makeNumberAction, refresh),
-        calcNumberButton('9', myCalculator.makeNumberAction, refresh),
-        calcNumberButton(
-            MyCalculator.plus, myCalculator.makeMathAction, refresh),
-      ]),
-      TableRow(children: [
-        calcNumberButton('+/-', myCalculator.makeNumberAction, refresh),
-        calcNumberButton('0', myCalculator.makeNumberAction, refresh),
-        calcNumberButton('.', myCalculator.makeNumberAction, refresh),
-        calcNumberButton(
-            MyCalculator.equal, myCalculator.makeMathAction, refresh),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton(MyCalculator.polarity, refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton('0', refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton('.', refresh),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: calcNumberButton(MyCalculator.equal, refresh),
+        ),
       ])
     ],
   );

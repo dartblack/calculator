@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
-Widget calcNumberButton(String title, Function calcFunction, Function refresh) {
-  return Container(
-      color: Colors.white,
-      padding: const EdgeInsets.all(5.0),
-      child: TextButton(
-        style: TextButton.styleFrom(
-            backgroundColor: Colors.black,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25.0),
-            )),
-        onPressed: () {
-          calcFunction(title);
-          refresh();
-        },
-        child: Text(
-          title,
-          style: const TextStyle(
-              fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
+Widget calcNumberButton(String title, Function callback) {
+  return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        shape: const CircleBorder(),
+        onPrimary: Colors.grey,
+        primary: Colors.white24,
+        minimumSize: const Size(70, 70),
+      ),
+      onPressed: () {
+        callback(title);
+      },
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
         ),
+        textAlign: TextAlign.center,
       ));
 }

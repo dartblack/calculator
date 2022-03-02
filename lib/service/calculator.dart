@@ -10,29 +10,30 @@ class MyCalculator {
   static const String clear = 'C';
   static const String nails = '()';
   static const String percent = '%';
+  static const String polarity = '+/-';
 
-  double sum = 0;
+  String sum = '';
   var calcHistory = <CalcHistory>[];
   String currentCalcString = '';
   String? error;
 
-  makeNumberAction(String number) {
-    currentCalcString += number;
-  }
-
-  makeMathAction(String operator) {
+  makeNumberAction(String operator) {
     switch (operator) {
-      case MyCalculator.plus:
-      case MyCalculator.minus:
-      case MyCalculator.multiply:
-      case MyCalculator.division:
-        currentCalcString += operator;
-        break;
       case MyCalculator.equal:
         makeEqual();
         break;
       case MyCalculator.clear:
         clearResults();
+        break;
+      case MyCalculator.polarity:
+        if (currentCalcString.startsWith('(-')) {
+          currentCalcString.replaceFirst('(-', '');
+        } else {
+          currentCalcString = '(-' + currentCalcString;
+        }
+        break;
+      default:
+        currentCalcString += operator;
         break;
     }
   }
@@ -42,14 +43,11 @@ class MyCalculator {
       Parser p = Parser();
       Expression exp = p.parse(currentCalcString);
       ContextModel num = ContextModel();
-      sum = exp.evaluate(EvaluationType.REAL, num);
-      String sumString = sum.toString();
-      addHistory(currentCalcString, sumString);
-      currentCalcString = sumString;
-    } on ArgumentError {
-      error = 'Invalid Format';
-    } on StateError {
-      error = 'Invalid State';
+      sum = exp.evaluate(EvaluationType.REAL, num).toString();
+      addHistory(currentCalcString, sum);
+      currentCalcString = sum;
+    } catch (e) {
+      error = e.toString();
     }
   }
 
@@ -58,7 +56,7 @@ class MyCalculator {
   }
 
   clearResults() {
-    sum = 0;
+    sum = '';
     currentCalcString = '';
   }
 
