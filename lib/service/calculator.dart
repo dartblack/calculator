@@ -27,7 +27,7 @@ class MyCalculator {
         break;
       case MyCalculator.polarity:
         if (currentCalcString.startsWith('(-')) {
-          currentCalcString.replaceFirst('(-', '');
+          currentCalcString = currentCalcString.replaceFirst('(-', '');
         } else {
           currentCalcString = '(-' + currentCalcString;
         }

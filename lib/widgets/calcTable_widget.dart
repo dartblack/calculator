@@ -9,19 +9,35 @@ Widget calcTable(MyCalculator myCalculator, Function refresh) {
         children: [
           Padding(
             padding: const EdgeInsets.all(15),
-            child: calcNumberButton(MyCalculator.clear, refresh),
+            child: calcNumberButton(
+              MyCalculator.clear,
+              refresh,
+              color: Colors.redAccent,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(15),
-            child: calcNumberButton(MyCalculator.nails, refresh),
+            child: calcNumberButton(
+              MyCalculator.nails,
+              refresh,
+              color: Colors.lightGreen,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(15),
-            child: calcNumberButton(MyCalculator.percent, refresh),
+            child: calcNumberButton(
+              MyCalculator.percent,
+              refresh,
+              color: Colors.lightGreen,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(15),
-            child: calcNumberButton(MyCalculator.division, refresh),
+            child: calcNumberButton(
+              MyCalculator.division,
+              refresh,
+              color: Colors.lightGreen,
+            ),
           ),
         ],
       ),
@@ -40,7 +56,11 @@ Widget calcTable(MyCalculator myCalculator, Function refresh) {
         ),
         Padding(
           padding: const EdgeInsets.all(10),
-          child: calcNumberButton(MyCalculator.multiply, refresh),
+          child: calcNumberButton(
+            MyCalculator.multiply,
+            refresh,
+            color: Colors.lightGreen,
+          ),
         ),
       ]),
       TableRow(children: [
@@ -58,7 +78,11 @@ Widget calcTable(MyCalculator myCalculator, Function refresh) {
         ),
         Padding(
           padding: const EdgeInsets.all(10),
-          child: calcNumberButton(MyCalculator.minus, refresh),
+          child: calcNumberButton(
+            MyCalculator.minus,
+            refresh,
+            color: Colors.lightGreen,
+          ),
         ),
       ]),
       TableRow(children: [
@@ -76,7 +100,11 @@ Widget calcTable(MyCalculator myCalculator, Function refresh) {
         ),
         Padding(
           padding: const EdgeInsets.all(10),
-          child: calcNumberButton(MyCalculator.plus, refresh),
+          child: calcNumberButton(
+            MyCalculator.plus,
+            refresh,
+            color: Colors.lightGreen,
+          ),
         ),
       ]),
       TableRow(children: [
@@ -94,7 +122,11 @@ Widget calcTable(MyCalculator myCalculator, Function refresh) {
         ),
         Padding(
           padding: const EdgeInsets.all(10),
-          child: calcNumberButton(MyCalculator.equal, refresh),
+          child: calcNumberButton(
+            MyCalculator.equal,
+            refresh,
+            buttonColor: Colors.lightGreen,
+          ),
         ),
       ])
     ],

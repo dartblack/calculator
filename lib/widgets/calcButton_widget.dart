@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-Widget calcNumberButton(String title, Function callback) {
+Widget calcNumberButton(String title, Function callback,
+    {Color color = Colors.white, Color buttonColor = Colors.white24}) {
   return ElevatedButton(
       style: ElevatedButton.styleFrom(
         shape: const CircleBorder(),
         onPrimary: Colors.grey,
-        primary: Colors.white24,
+        primary: buttonColor,
         minimumSize: const Size(70, 70),
       ),
       onPressed: () {
@@ -13,10 +14,10 @@ Widget calcNumberButton(String title, Function callback) {
       },
       child: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: color,
         ),
         textAlign: TextAlign.center,
       ));
