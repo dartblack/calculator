@@ -15,7 +15,7 @@ class MyCalculator {
   String sum = '';
   var calcHistory = <CalcHistory>[];
   String currentCalcString = '';
-  String? error;
+  String error = '';
 
   makeNumberAction(String operator) {
     switch (operator) {
@@ -26,7 +26,9 @@ class MyCalculator {
         clearResults();
         break;
       case MyCalculator.polarity:
-        if (currentCalcString.startsWith('(-')) {
+        if (currentCalcString.startsWith('-')) {
+          currentCalcString = currentCalcString.replaceFirst('-', '');
+        } else if (currentCalcString.startsWith('(-')) {
           currentCalcString = currentCalcString.replaceFirst('(-', '');
         } else {
           currentCalcString = '(-' + currentCalcString;
@@ -48,6 +50,7 @@ class MyCalculator {
       currentCalcString = sum;
     } catch (e) {
       error = e.toString();
+      sum = 'Error';
     }
   }
 

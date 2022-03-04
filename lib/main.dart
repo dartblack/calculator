@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   TableRow(
                     children: [
                       Text(
-                        myCalculator.sum.toString(),
+                        myCalculator.sum,
                         textAlign: TextAlign.right,
                         style: const TextStyle(
                           color: Colors.white54,
